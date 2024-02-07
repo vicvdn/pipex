@@ -16,3 +16,17 @@ In summary, this command reads the file infile, searches for occurrences of the 
 ## Documentation
 
 - [Excellent documentation to understand the project and the functions we are allowed to use](https://42-cursus.gitbook.io/guide/rank-02/pipex/understand-pipex)
+
+**Functions allowd and explanations**:
+
+In the provided code snippet, errno is set by the fopen function when it fails to open the file "nonexistent.txt" for reading. The fopen function attempts to open the file and returns a FILE* pointer if successful. However, if it cannot open the file—for instance, because the file does not exist or due to insufficient permissions—it returns NULL and sets errno to indicate the error that occurred 4.
+
+Here's the relevant part of the code:
+```
+FILE *file = fopen("nonexistent.txt", "r");
+if (file == NULL) {
+    perror("Error opening file");
+    // Handle error, perhaps by exiting the program
+    exit(EXIT_FAILURE);
+}
+```
