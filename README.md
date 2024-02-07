@@ -23,8 +23,16 @@ In the provided code snippet, errno is set by the fopen function when it fails t
 
 Here's the relevant part of the code:
 ```c
-FILE *file = fopen("nonexistent.txt", "r");
-if (file == NULL) {
+#include <stdio.h>
+#include <stdlib.h>
+
+int    main(void)
+{
+FILE *file;
+
+file = fopen("nonexistent.txt", "r");
+if (file == NULL)
+{
     perror("Error opening file");
     // Handle error, perhaps by exiting the program
     exit(EXIT_FAILURE);
