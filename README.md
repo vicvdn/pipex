@@ -19,6 +19,8 @@ In summary, this command reads the file infile, searches for occurrences of the 
 
 **Functions allowd and explanations**:
 
+- Understanding perror()
+
 In the provided code snippet, errno is set by the fopen function when it fails to open the file "nonexistent.txt" for reading. The fopen function attempts to open the file and returns a FILE* pointer if successful. However, if it cannot open the file—for instance, because the file does not exist or due to insufficient permissions—it returns NULL and sets errno to indicate the error that occurred 4.
 
 Here's the relevant part of the code:
