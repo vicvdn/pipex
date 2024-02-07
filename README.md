@@ -65,7 +65,7 @@ int main()
 
 - dup2() : [Great video to understand what dup2() does](https://www.youtube.com/watch?v=5fnVr-zH-SE)
 
-dup2() makes newfd be the copy of oldfd, closing newfd first if necessary, but note the following:
+```dup2()``` makes newfd be the copy of oldfd, closing ```newfd``` first if necessary, but note the following:
 - if ```oldfd``` is not a valid fd, then the call fails and ```new_fd``` is not closed.
 - if ```oldfd``` is a valid fd, and newfd has the same value as ```oldfd```, then ```dup2()``` does npthing and returns ```newfd```.
 After a successful return from dup2(), the old and new file descriptor may be used interchangeably.
