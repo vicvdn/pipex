@@ -96,6 +96,8 @@ int main(int ac, char *av[], char *env[])
     execve("grep", grep_args, env);
 }
 ```
+In this example, first we open both in and out file, in reading and writing mode respectively. Then we use dup2() to replace the stdin file descriptor by the in file descriptor.
+This way, whatever the command that comes after will read from the stdin will be whatever the content of in is since the stdin file descriptor now "points" to the in file. Then, we can close in and out, we don't use them anymore, right ? We set the stdin file descriptor to be the same as in, so now we only use stdin, in and out are not used anymore, we can close them.
 
 ## New notions:
 
