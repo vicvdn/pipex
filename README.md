@@ -21,7 +21,7 @@ In summary, this command reads the file infile, searches for occurrences of the 
 
 - Perror()
 
-The perror function in C is used to display a descriptive error message to the standard error (stderr). It takes a single argument, which is a string that acts as a prefix to the error message. If the string is not NULL, perror first prints the string followed by a colon and a space. After this, it prints an implementation-defined error message that corresponds to the current value of the errno variable, which is typically set by system calls and some library functions to indicate what error occurred.
+The ```perror()``` function in C is used to display a descriptive error message to the ```standard error (stderr)```. It takes a single argument, which is a string that acts as a prefix to the error message. If the string is not NULL, perror first prints the string followed by a colon and a space. After this, it prints an implementation-defined error message that corresponds to the current value of the errno variable, which is typically set by system calls and some library functions to indicate what error occurred.
 
 In the provided code snippet, errno is set by the fopen function when it fails to open the file "nonexistent.txt" for reading. The fopen function attempts to open the file and returns a FILE* pointer if successful. However, if it cannot open the file—for instance, because the file does not exist or due to insufficient permissions—it returns NULL and sets errno to indicate the error that occurred 4.
 
@@ -46,4 +46,19 @@ if (file == NULL)
 - Access()
 
 ```access()``` checks whether the program can access the ```file pathname```.
+```c
+#include <unistd.h>
+#include <stdio.h>
+
+int main()
+{
+    if (access("readfile", R_OK) == 0)
+        printf("readfile is accessible in reading mode\n");
+    if (access("writefile", W_OK) == 0)
+        printf("writefile is accessible in writing mode\n");
+    if (access("executefile", X_OK) == 0)
+        printf("executefile is accessible in execution mode\n");
+    if (access("rwfile", R_OK|W_OK) == 0)
+        printf("rwfile is accessible in writing and reading mode\n");
+}```
 
