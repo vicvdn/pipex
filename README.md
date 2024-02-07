@@ -62,3 +62,6 @@ int main()
         printf("rwfile is accessible in writing and reading mode\n");
 }```
 
+## New notions:
+
+
