@@ -60,8 +60,16 @@ int main()
         printf("executefile is accessible in execution mode\n");
     if (access("rwfile", R_OK|W_OK) == 0)
         printf("rwfile is accessible in writing and reading mode\n");
-}```
+}
+```
 
 ## New notions:
 
+[Input/Output Introduction](https://www.youtube.com/watch?v=Vax97MIL_uI&list=RDCMUCX2Dop_X6MtbcmEVkbjMpSA&start_radio=1&rv=Vax97MIL_uI&t=1)
+
+- 0 is the stdinput
+- 1 is the stdoutput
+- 2 is the stderr
+
+The reason why we have a different fd for output and error is that we are probably going to want to output things into a file other than the terminal whereas generally we want to output errors in the terminal. 
 
