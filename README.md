@@ -17,7 +17,7 @@ In summary, this command reads the file infile, searches for occurrences of the 
 
 - [Excellent documentation to understand the project and the functions we are allowed to use](https://42-cursus.gitbook.io/guide/rank-02/pipex/understand-pipex)
 
-**Functions allowd and explanations**:
+**Functions allowed and explanations**:
 
 - Perror()
 
