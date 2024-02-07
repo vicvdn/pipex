@@ -11,3 +11,8 @@ The command ```grep a1 < infile | wc -w > outfile``` performs the following acti
 - ```> outfile```: The ```>``` operator redirects the output of the wc command to outfile. If outfile doesn't exist, it will be created. If it does exist, its contents will be overwritten.
 
 In summary, this command reads the file infile, searches for occurrences of the string "a1", counts the number of words in those occurrences, and writes the word count to outfile.
+
+
+## Documentation
+
+- [Excellent documentation to understand the project and the functions we are allowed to use]:(https://42-cursus.gitbook.io/guide/rank-02/pipex/understand-pipex)
