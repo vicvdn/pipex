@@ -22,7 +22,7 @@ In summary, this command reads the file infile, searches for occurrences of the 
 In the provided code snippet, errno is set by the fopen function when it fails to open the file "nonexistent.txt" for reading. The fopen function attempts to open the file and returns a FILE* pointer if successful. However, if it cannot open the file—for instance, because the file does not exist or due to insufficient permissions—it returns NULL and sets errno to indicate the error that occurred 4.
 
 Here's the relevant part of the code:
-```
+```c
 FILE *file = fopen("nonexistent.txt", "r");
 if (file == NULL) {
     perror("Error opening file");
