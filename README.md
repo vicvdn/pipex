@@ -63,7 +63,7 @@ int main()
 }
 ```
 
-- dup2() : [Great video to understand what dup2() does](https://www.youtube.com/watch?v=5fnVr-zH-SE)
+- Dup2() : [Great video to understand what dup2() does](https://www.youtube.com/watch?v=5fnVr-zH-SE)
 
 ```dup2()``` makes newfd be the copy of oldfd, closing ```newfd``` first if necessary, but note the following:
 - if ```oldfd``` is not a valid fd, then the call fails and ```new_fd``` is not closed.
