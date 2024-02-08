@@ -135,11 +135,30 @@ When we add an "e" to the name of the function (to get execve for example) we ca
 - **Fork()** => requires the <unistd.h> library
 
 Fork creates a child process within the pprocess we are in> The function returns an int (which we'll name id) that is equal to 0 when you are in the child process. If it is not 0 it means that we are in the main process and not the child one.
-If we call fork() n times we will have 2<sup>n</sup> processes.
+If we call fork() n times we will have 2<sup>n</sup> processes. The child process has the exact same memory as the main (or parent) process.
 
 - Pipe()
 - Unlink()
 - Wait()
+
+The wait function is going to stop the execution of a process until another process is finished. For example:
+
+```c
+int    main(int ac, char av)
+{
+    int id = fork();
+    int n;
+
+    if (id == 0)
+        n = 1;
+    else
+        n = 6;
+    if (id != 0)
+        wait();
+}
+```
+Here, with wait we ask the parent process to wait for its child process to be done before resuming. 
+
 - Waitpid()
 
 
