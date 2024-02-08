@@ -138,6 +138,17 @@ Fork creates a child process within the pprocess we are in> The function returns
 If we call ```fork()``` n times we will have 2<sup>n</sup> processes. The child process has the exact same memory as the main (or parent) process, the memory is being copied, variable by variable from one process to another when you call ```fork()```. But bear in mind that bcause we have a copy, the copy itself does not have the same place in the memory than the parent. (cf ex for ```wait()``` function and n being modified differently depending on the id returned by ```fork()```).
 
 - Pipe()
+
+```c
+int    pipe(int pipefd[2]);
+
+//pipefd[0] - read
+//pipefd[1] - write
+```
+
+The function takes 2 fds as parameters and returns -1 if an error occured during execution. Therefore it is recommended to check if the return is -1 to detect any error. The order of the calls to the functions matter. We need to open the pipe before using fork(). Why, because the 2 fds get copied over and then inherited by the child processes and can be handled separately : we can open and close the same file independently in the 2 processes.
+
+
 - Unlink()
 - **Wait()**
 
