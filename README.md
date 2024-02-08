@@ -184,5 +184,7 @@ Here, with wait we ask the parent process to wait for its child process to be do
 - 1 is the stdoutput
 - 2 is the stderr
 
-The reason why we have a different fd for output and error is that we are probably going to want to output things into a file other than the terminal whereas generally we want to output errors in the terminal. 
+The reason why we have a different fd for output and error is that we are probably going to want to output things into a file other than the terminal whereas generally we want to output errors in the terminal.
+
+- [practical use case for fork and pipe](https://www.youtube.com/watch?v=6u_iPGVkfZ4)
 
