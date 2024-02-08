@@ -148,7 +148,8 @@ int    pipe(int pipefd[2]);
 //pipefd[1] - write
 ```
 
-The function takes 2 fds as parameters and returns -1 if an error occured during execution. Therefore it is recommended to check if the return is -1 to detect any error. The order of the calls to the functions matter. We need to open the pipe before using fork(). Why, because the 2 fds get copied over and then inherited by the child processes and can be handled separately : we can open and close the same file independently in the 2 processes.
+The function takes 2 fds as parameters and returns -1 if an error occured during execution. Therefore it is recommended to check if the return is -1 to detect any error. The order of the calls to the functions matter. We need to open the pipe before using ```fork()```. Why, because the 2 fds get copied over and then inherited by the child processes and can be handled separately : we can open and close the same file independently in the 2 processes.
+Even if you have 2 fds originally you need to close 4 times if you use ```fork()``` because it creates a copy of these 2 fds to be used by the child process.
 
 
 - Unlink()
