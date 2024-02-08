@@ -68,7 +68,7 @@ int main()
 ```dup2()``` makes newfd be the copy of oldfd, closing ```newfd``` first if necessary, but note the following:
 - if ```oldfd``` is not a valid fd, then the call fails and ```new_fd``` is not closed.
 - if ```oldfd``` is a valid fd, and newfd has the same value as ```oldfd```, then ```dup2()``` does npthing and returns ```newfd```.
-After a successful return from dup2(), the old and new file descriptor may be used interchangeably.
+After a successful return from ```dup2()```, the old and new file descriptor may be used interchangeably.
 
 ```c
 #include <unistd.h>
@@ -96,7 +96,7 @@ int main(int ac, char *av[], char *env[])
     execve("grep", grep_args, env);
 }
 ```
-In this example, first we open both in and out file, in reading and writing mode respectively. Then we use dup2() to replace the stdin file descriptor by the in file descriptor.
+In this example, first we open both in and out file, in reading and writing mode respectively. Then we use ```dup2()``` to replace the stdin file descriptor by the in file descriptor.
 This way, whatever the command that comes after will read from the stdin will be whatever the content of in is since the stdin file descriptor now "points" to the in file. Then, we can close in and out, we don't use them anymore, right ? We set the stdin file descriptor to be the same as in, so now we only use stdin, in and out are not used anymore, we can close them.
 
 - **Execve()**: 
@@ -105,7 +105,7 @@ This way, whatever the command that comes after will read from the stdin will be
 
 [Broader video on exec() functions](https://www.youtube.com/watch?v=OVFEWSP7n8c)
 
-The difference between execv...() functions and execl...() functions is that the first one takes a vector of arguments as parameter (ex 1) whereas the second directly takes the listed parameters as arguments (ex 2).
+The difference between ```execv...()``` functions and ```execl...()``` functions is that the first one takes a vector of arguments as parameter (ex 1) whereas the second directly takes the listed parameters as arguments (ex 2).
 
 ```c
 //ex1:
@@ -135,11 +135,11 @@ When we add an "e" to the name of the function (to get execve for example) we ca
 - **Fork()** => requires the <unistd.h> library
 
 Fork creates a child process within the pprocess we are in> The function returns an int (which we'll name id) that is equal to 0 when you are in the child process. If it is not 0 it means that we are in the main process and not the child one.
-If we call fork() n times we will have 2<sup>n</sup> processes. The child process has the exact same memory as the main (or parent) process.
+If we call ```fork()``` n times we will have 2<sup>n</sup> processes. The child process has the exact same memory as the main (or parent) process, the memory is being copied, variable by variable from one process to another when you call ```fork()```. But bear in mind that bcause we have a copy, the copy itself does not have the same place in the memory than the parent. (cf ex for ```wait()``` function and n being modified differently depending on the id returned by ```fork()```).
 
 - Pipe()
 - Unlink()
-- Wait()
+- **Wait()**
 
 The wait function is going to stop the execution of a process until another process is finished. For example:
 
