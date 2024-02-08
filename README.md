@@ -137,7 +137,9 @@ When we add an "e" to the name of the function (to get execve for example) we ca
 Fork creates a child process within the pprocess we are in> The function returns an int (which we'll name id) that is equal to 0 when you are in the child process. If it is not 0 it means that we are in the main process and not the child one.
 If we call ```fork()``` n times we will have 2<sup>n</sup> processes. The child process has the exact same memory as the main (or parent) process, the memory is being copied, variable by variable from one process to another when you call ```fork()```. But bear in mind that bcause we have a copy, the copy itself does not have the same place in the memory than the parent. (cf ex for ```wait()``` function and n being modified differently depending on the id returned by ```fork()```).
 
-- Pipe()
+- **Pipe()**
+
+[Explanatory video](https://www.youtube.com/watch?v=Mqb2dVRe0uo)
 
 ```c
 int    pipe(int pipefd[2]);
