@@ -43,7 +43,7 @@ if (file == NULL)
 }
 ```
 
-- Access()
+- **Access()**
 
 ```access()``` checks whether the program can access the ```file pathname```.
 ```c
@@ -63,7 +63,7 @@ int main()
 }
 ```
 
-- Dup2() : [Great video to understand what dup2() does](https://www.youtube.com/watch?v=5fnVr-zH-SE)
+- **Dup2()** : [Great video to understand what dup2() does](https://www.youtube.com/watch?v=5fnVr-zH-SE)
 
 ```dup2()``` makes newfd be the copy of oldfd, closing ```newfd``` first if necessary, but note the following:
 - if ```oldfd``` is not a valid fd, then the call fails and ```new_fd``` is not closed.
@@ -99,7 +99,7 @@ int main(int ac, char *av[], char *env[])
 In this example, first we open both in and out file, in reading and writing mode respectively. Then we use dup2() to replace the stdin file descriptor by the in file descriptor.
 This way, whatever the command that comes after will read from the stdin will be whatever the content of in is since the stdin file descriptor now "points" to the in file. Then, we can close in and out, we don't use them anymore, right ? We set the stdin file descriptor to be the same as in, so now we only use stdin, in and out are not used anymore, we can close them.
 
-- Execve(): 
+- **Execve()**: 
 
 [Explanatory video on execve() specifically](https://www.youtube.com/watch?v=iq7puCxsgHQ)
 
@@ -132,9 +132,10 @@ int    main(int ac, char *av[])
 ```
 When we add an "e" to the name of the function (to get execve for example) we can pass an environment (set of variables) as a parameter. The "p" option specifies that I want to pass the path argument to the function but it is optionnal and not going to vbe used here. If you put a printf after calling an exec function and it gets executed, it means that there was an error during the execution of the exec function and it didn't work, to get the error you need to see what value errno has.
 
-- Fork() => requires the <unistd.h> library
+- **Fork()** => requires the <unistd.h> library
 
 Fork creates a child process within the pprocess we are in> The function returns an int (which we'll name id) that is equal to 0 when you are in the child process. If it is not 0 it means that we are in the main process and not the child one.
+If we call fork() n times we will have 2^n processes.
 
 - Pipe()
 - Unlink()
