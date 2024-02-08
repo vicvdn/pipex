@@ -99,7 +99,10 @@ int main(int ac, char *av[], char *env[])
 In this example, first we open both in and out file, in reading and writing mode respectively. Then we use dup2() to replace the stdin file descriptor by the in file descriptor.
 This way, whatever the command that comes after will read from the stdin will be whatever the content of in is since the stdin file descriptor now "points" to the in file. Then, we can close in and out, we don't use them anymore, right ? We set the stdin file descriptor to be the same as in, so now we only use stdin, in and out are not used anymore, we can close them.
 
-- Execve(): [Excellent video on exec() functions](https://www.youtube.com/watch?v=OVFEWSP7n8c)
+- Execve(): 
+
+[Explanatory video on execve() specifically](https://www.youtube.com/watch?v=iq7puCxsgHQ)
+[Excellent video on exec() functions](https://www.youtube.com/watch?v=OVFEWSP7n8c)
 
 The difference between execv...() functions and execl...() functions is that the first one takes a vector of arguments as parameter (ex 1) whereas the second directly takes the listed parameters as arguments (ex 2).
 
@@ -113,7 +116,7 @@ int    main(int ac, char *av[])
         "google",
         NULL
     };
-    _execvp("ping", arr);
+    execvp("ping", arr);
     return (0);
 }
 
@@ -121,15 +124,13 @@ int    main(int ac, char *av[])
 
 int    main(int ac, char *av[])
 {
-    _execlp("ping", "ping", "google.com", NULL);
+    execlp("ping", "ping", "google.com", NULL);
     return (0);
 }
 
 ```
+When we add an "e" to the name of the function (to get execve for example) we can pass an environment (set of variables) as a parameter. The "p" option specifies that I want to pass the path argument to the function but it is optionnal and not going to vbe used here. If you put a printf after calling an exec function and it gets executed, it means that there was an error during the execution of the exec function and it didn't work, to get the error you need to see what value errno has.
 
-
-
-- Exit()
 - Fork()
 - Pipe()
 - Unlink()
