@@ -99,7 +99,36 @@ int main(int ac, char *av[], char *env[])
 In this example, first we open both in and out file, in reading and writing mode respectively. Then we use dup2() to replace the stdin file descriptor by the in file descriptor.
 This way, whatever the command that comes after will read from the stdin will be whatever the content of in is since the stdin file descriptor now "points" to the in file. Then, we can close in and out, we don't use them anymore, right ? We set the stdin file descriptor to be the same as in, so now we only use stdin, in and out are not used anymore, we can close them.
 
-- Execve()
+- Execve(): [Excellent video on exec() functions](https://www.youtube.com/watch?v=OVFEWSP7n8c)
+
+The difference between execv...() functions and execl...() functions is that the first one takes a vector of arguments as parameter (ex 1) whereas the second directly takes the listed parameters as arguments (ex 2).
+
+```c
+//ex1:
+
+int    main(int ac, char *av[])
+{
+    char *arr[] = {
+        "ping",
+        "google",
+        NULL
+    };
+    _execvp("ping", arr);
+    return (0);
+}
+
+//ex2:
+
+int    main(int ac, char *av[])
+{
+    _execlp("ping", "ping", "google.com", NULL);
+    return (0);
+}
+
+```
+
+
+
 - Exit()
 - Fork()
 - Pipe()
