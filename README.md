@@ -135,7 +135,7 @@ When we add an "e" to the name of the function (to get execve for example) we ca
 - **Fork()** => requires the <unistd.h> library
 
 Fork creates a child process within the pprocess we are in> The function returns an int (which we'll name id) that is equal to 0 when you are in the child process. If it is not 0 it means that we are in the main process and not the child one.
-If we call fork() n times we will have 2^n processes.
+If we call fork() n times we will have 2<sup>n</sup> processes.
 
 - Pipe()
 - Unlink()
