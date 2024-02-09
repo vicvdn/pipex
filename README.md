@@ -192,3 +192,11 @@ The reason why we have a different fd for output and error is that we are probab
 
 - [practical use case for fork and pipe](https://www.youtube.com/watch?v=6u_iPGVkfZ4)
 
+## My logic:
+
+---
+title: Node
+---
+flowchart LR
+    id
+
