@@ -194,10 +194,3 @@ The reason why we have a different fd for output and error is that we are probab
 
 ## My logic:
 
-```
----
-title: Node
----
-flowchart LR
-    id
-```
