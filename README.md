@@ -194,3 +194,5 @@ The reason why we have a different fd for output and error is that we are probab
 
 ## My logic:
 
+- first we need to check if the files exists => with access() and the flag F_OK
+    - if the file on the first end of the pipe doesn't exist we should still create the file on the second end of the pipe if it doesn't exist and perform the command associated to it.
