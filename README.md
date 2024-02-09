@@ -13,6 +13,8 @@ The command ```grep a1 < infile | wc -w > outfile``` performs the following acti
 In summary, this command reads the file infile, searches for occurrences of the string "a1", counts the number of words in those occurrences, and writes the word count to outfile.
 
 
+[A comprehensive guide to pipex](https://reactive.so/post/42-a-comprehensive-guide-to-pipex)
+
 ## Documentation
 
 - [Excellent documentation to understand the project and the functions we are allowed to use](https://42-cursus.gitbook.io/guide/rank-02/pipex/understand-pipex)
@@ -173,7 +175,9 @@ int    main(int ac, char av)
 ```
 Here, with wait we ask the parent process to wait for its child process to be done before resuming. 
 
-- Waitpid()
+- **Waitpid()**
+
+The ```waitpid()``` function in C is used by a parent process to make itself wait until one of its child processes exits. It provides more flexibility compared to the simpler ```wait()``` function, allowing the parent process to specify which child process to wait for and how to behave in case of certain events.
 
 
 ## New notions:
