@@ -192,7 +192,8 @@ The reason why we have a different fd for output and error is that we are probab
 
 - [practical use case for fork and pipe](https://www.youtube.com/watch?v=6u_iPGVkfZ4)
 
-- The ```which```command followed by another command gives us the path of a command. We need this path for ```execve()``` to zork. 
+- The ```which```command followed by another command gives us the path of a command. We need this path for ```execve()``` to work.
+- If we don't use fork() in our function, then execve(), when it is called, will just make us leave our main process and never return to it.
 
 ## My logic:
 
