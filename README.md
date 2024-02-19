@@ -141,6 +141,8 @@ If we call ```fork()``` n times we will have 2<sup>n</sup> processes. The child 
 
 - **Pipe()**
 
+The use of pipe is to connect separate processes within our code. Indeed, they would just be executed separately if it weren't for ```pipe()```. ```Pipe()``` creates both a reading and a writing end, therefore **process1** can write its result on the writing end, and the reading end created by the pipe can read its content to pass it on to the **next process**.
+
 [Explanatory video](https://www.youtube.com/watch?v=Mqb2dVRe0uo)
 
 ```c
