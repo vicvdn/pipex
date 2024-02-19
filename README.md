@@ -199,3 +199,13 @@ The reason why we have a different fd for output and error is that we are probab
 
 - first we need to check if the files exists => with access() and the flag F_OK
     - if the file on the first end of the pipe doesn't exist we should still create the file on the second end of the pipe if it doesn't exist and perform the command associated to it.
+ 
+## Tests to run
+
+/dev/stdin cat ls /dev/stdout, pour vérifier la connexion des pipes/waits qui doit faire un sigpipe.
+time in "sleep 5" "sleep 5" out, pour vérifier que tu lances les commandes "en même temps". (Le temps devrait être d'environ 5s, pas 10.)
+fichier in sans droit ou inexistant, et vérifier que la première commande n'est pas executé. (Idem pour out et la dernière commande)
+Commande sans droit ou inexistante en première et/ou deuxième.
+in /usr/bin/ls /usr/bin/cat out, pour vérifier la recherche absolue.
+cp /usr/bin/ls ./; mv ls lsa; in ./lsa cat out, pour vérifier la recherche relatif. (Tu peux aussi mettre le lsa dans un sous-dossier de ton pipex, et le lancer via dossier/lsa)
+Bien vérifier les leaks (y compris les fds) dans tous les cas au dessus, et en cas de fail d'execve.
