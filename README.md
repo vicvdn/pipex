@@ -197,10 +197,10 @@ The reason why we have a different fd for output and error is that we are probab
 - The ```which```command followed by another command gives us the path of a command. We need this path for ```execve()``` to work.
 - If we don't use fork() in our function, then execve(), when it is called, will just make us leave our main process and never return to it.
 
-## My logic:
+## My progress:
 
-- first we need to check if the files exists => with access() and the flag F_OK
-    - if the file on the first end of the pipe doesn't exist we should still create the file on the second end of the pipe if it doesn't exist and perform the command associated to it.
+- need to code the exec part for the second command
+- check if ft_exec works etc> protect it -> check if I free sufficiently with strjoin used.
  
 ## Tests to run
 
