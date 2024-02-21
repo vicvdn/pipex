@@ -175,7 +175,7 @@ int    main(int ac, char av)
         wait();
 }
 ```
-Here, with wait we ask the parent process to wait for its child process to be done before resuming. You always want to wait for the cild to finish its process before finishing the program.
+Here, with wait we ask the parent process to wait for its child process to be done before resuming. You always want to wait for the child to finish its process before finishing the program.
 
 - **Waitpid()**
 
