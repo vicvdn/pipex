@@ -197,10 +197,15 @@ The reason why we have a different fd for output and error is that we are probab
 - The ```which```command followed by another command gives us the path of a command. We need this path for ```execve()``` to work.
 - If we don't use fork() in our function, then execve(), when it is called, will just make us leave our main process and never return to it.
 
-## My progress:
+## Complementary notes
 
-- need to code the exec part for the second command
-- check if ft_exec works etc> protect it -> check if I free sufficiently with strjoin used.
+Using a tester I got errors when it came to return vlues. Indeed, I did not specify which exit statuses my processes should return in specific cases (for example if a path wasn't found to execute). I was told to look at the man 3 for wait() and especially at the return values and at the part regarding exit statuses. What it said was : 
+"If wait() or waitpid() return because the status of a child process is available, these functions shall return a value  equal  to the process ID of the child process." We used this to check if our program executed the first or the econd child first, based on the return of our first wait() and acted accordingly:
+- another wait(NULL) if we already executed the child2 (because we already had its exit status stored in our in exit status from the first wait(&exit_status).
+- or a wait(&exit_status) if the first child had been executed first.
+
+Then we checked if the exit_status was different than ), meaning that there had been an error, and if so, returned this exitstatus with WEXITSTATUS(exit_status).
+
  
 ## Tests to run
 
