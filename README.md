@@ -156,7 +156,24 @@ The function takes 2 fds as parameters and returns -1 if an error occured during
 Even if you have 2 fds originally you need to close 4 times if you use ```fork()``` because it creates a copy of these 2 fds to be used by the child process.
 
 
-- Unlink()
+- **Unlink()**
+
+The unlink() function in C is used to remove a name from the filesystem. When a name is removed using unlink(), it decrements the link count of the file. If the link count reaches zero and no process has the file open, the file is deleted, and the space it occupied is made available for reuse. However, if the file is still open by any processes, the file will remain in existence until the last file descriptor referring to it is closed. This behavior applies to both regular files and special files like sockets, FIFOs, or devices.
+
+```
+#include <unistd.h>
+
+int main() {
+    int status = unlink("filename");
+    if (status == 0) {
+        printf("File removed successfully.\n");
+    } else {
+        printf("Error removing file.\n");
+    }
+    return 0;
+}
+
+```
 - **Wait()**
 
 The wait function is going to stop the execution of a process until another process is finished. For example:
