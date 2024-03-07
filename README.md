@@ -160,7 +160,7 @@ Even if you have 2 fds originally you need to close 4 times if you use ```fork()
 
 The unlink() function in C is used to remove a name from the filesystem. When a name is removed using unlink(), it decrements the link count of the file. If the link count reaches zero and no process has the file open, the file is deleted, and the space it occupied is made available for reuse. However, if the file is still open by any processes, the file will remain in existence until the last file descriptor referring to it is closed. This behavior applies to both regular files and special files like sockets, FIFOs, or devices.
 
-```
+```c
 #include <unistd.h>
 
 int main() {
