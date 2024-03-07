@@ -132,7 +132,7 @@ int    main(int ac, char *av[])
 }
 
 ```
-When we add an "e" to the name of the function (to get execve for example) we can pass an environment (set of variables) as a parameter. The "p" option specifies that I want to pass the path argument to the function but it is optionnal and not going to be used here. If you put a printf after calling an exec function and it gets executed, it means that there was an error during the execution of the exec function and it didn't work, to get the error you need to see what value errno has.
+When we add an "e" to the name of the function (to get execve for example) we can pass an environment (set of variables) as a parameter. The "p" option specifies that I want to pass the path argument to the function but it is optional and not going to be used here. If you put a printf after calling an exec function and it gets executed, it means that there was an error during the execution of the exec function and it didn't work, to get the error you need to see what value errno has.
 
 - **Fork()** => requires the <unistd.h> library
 
